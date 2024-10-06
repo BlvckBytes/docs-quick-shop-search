@@ -35,7 +35,7 @@ To query all globally existing shops using any of the languages supported by the
 
 Usage: `/qssrl`
 
-The configuration can be reloaded at any point in time, simply by running `/quickshopreload` or its alias `/qssrl`; this also affects open displays and will update the inventory-title as well as all rendered items.
+The configuration can be reloaded at any point in time, simply by running `/quickshopsearchreload` or its alias `/qssrl`; this also affects open displays and will update the inventory-title as well as all rendered items.
 
 ## Permissions
 
