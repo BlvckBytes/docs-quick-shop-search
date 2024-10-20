@@ -11,9 +11,29 @@ import ReactPlayer from 'react-player'
 
 ## Paginated Display
 
-The display not only serves results page by page, but also allows to apply further restrictions and preferences; these choices are persisted, in order to ensure lasting personalization. I'll let the following tour speak for itself.
+### Page Navigation
 
-<ReactPlayer playing loop controls url='ui_tour.mp4' />
+Navigate to either the next- or the previous page, or quickly jump to the very first- or last page.
+
+![display pagination](/img/display_pagination.gif)
+
+### Shop Details
+
+A rich preview of details regarding each individual shop, which not only offers actions to either teleport to the destination or open the native preview, but also updates in real time.
+
+![display details](/img/display_details.gif)
+
+### Sorting Results
+
+Create your very own sorting-setup by choosing from an extensive list of criteria; each entry can either be disabled (taking no effect), or be toggled between ascending (+) and descending (-); to decide sorting-precedence, individual entries may be moved. Your choices will be remembered, as to ensure future results being displayed in a personalized manner. You can reset your selection with merely the click of a button at any time!
+
+![display sorting](/img/display_sorting.gif)
+
+### Filtering Results
+
+Filter results based on your exact requirements: criteria combines conditionally, meaning that all selections need to apply to any given shop. Your choices will be remembered, as to ensure future results being displayed in a personalized manner. You can reset your selection with merely the click of a button at any time!
+
+![display filtering](/img/display_filtering.gif)
 
 ## Commands
 
@@ -50,10 +70,10 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 
 ## Performance Concerns
 
-Since it's totally reasonable to be concerned with the performance-impact a plugin like this could cause, I want to provide some ballpark measurements and insights into the whole process; after all, it's doing a lot: parsing complex predicates, querying **all global shops** and rendering **customizable** preview items.
+Since it's totally reasonable to be concerned with the performance-impact a plugin like this could cause, I want to provide some ballpark measurements and insights into the whole process; after all, it's doing a lot: parsing complex predicates, querying **all global shops**, rendering **customizable** preview items and reflecting shop-changes **immediately** in all open search-windows.
 
-First and foremost, all of the previously mentioned tasks are executed asynchronously. Secondly, all globally existing shops are queried once on startup and then cached, while newly created or removed shops are of course tracked too; this includes caching not only the remaining stock (as to avoid needless inventory slot scans), but also takes care of the configurable display item template.
+First and foremost, all of the previously mentioned tasks are executed asynchronously. Secondly, all globally existing shops are queried once on startup and then cached, while newly created or removed shops are of course tracked too; this includes caching not only the remaining stock and space (as to avoid needless inventory slot scans), but also takes care of the configurable display item template.
 
-Complex predicates take around four to five milliseconds to parse; there's still room for improvement. Where the system shines is the speed of predicate execution, which - for rather complex queries - lies at around 5 nanoseconds per Shop; on a reasonably large server with, for example, 100k shops, a query would take merely half a second.
+Even complex predicates take only roughly two milliseconds to parse. Where the system really shines is the speed of predicate execution, which - for rather nuanced queries - lies at around 5 nanoseconds per Shop; on a reasonably large server with, for example, 100k shops, a query would take merely half a second.
 
-Rendering a GUI-page, as can be seen in the tour, including page-items and controls, takes around two to two four. Over all, I believe that the performance of this plugin is within an acceptable range; if you ever encounter any issues, please report back to me, so that I have further motivation to improve efficiency.
+Rendering a full GUI-page, including page-items and controls, takes around two to two four milliseconds. Over all, I believe that the performance of this plugin is within an acceptable range; if you ever encounter any issues, please report back to me, so that I have further motivation to improve efficiency.
