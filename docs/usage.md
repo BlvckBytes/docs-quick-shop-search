@@ -35,6 +35,12 @@ Filter results based on your exact requirements: criteria combines conditionally
 
 ![display filtering](/img/display_filtering.gif)
 
+### Powerful Predicates
+
+Thanks to the feature-rich syntax as provided by the [ItemPredicateParser](https://blvckbytes.github.io/docs-item-predicate-parser), queries can be as simple or as detailed as you desire them to be; the days of having to flip through hundreds of unspecific results are finally over!
+
+![display filtering](/img/command_predicate.gif)
+
 ## Commands
 
 Please familiarize yourself with the syntax of predicates over at the [Parser's Documentation](https://blvckbytes.github.io/docs-item-predicate-parser). Results are, if any, offered within a paginated display.
