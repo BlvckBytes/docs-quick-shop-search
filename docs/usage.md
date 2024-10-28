@@ -35,6 +35,12 @@ Filter results based on your exact requirements: criteria combines conditionally
 
 ![display filtering](/img/display_filtering.gif)
 
+### Remote Interaction
+
+Interact with shops from any arbitrary distance, be it within the same world, or even across worlds! The requests to sell and buy items will be relayed to the shop and handled natively, thereby ensuring proper transactional consistency.
+
+![display remote interact](/img/display_remote_interact.gif)
+
 ### Powerful Predicates
 
 Thanks to the feature-rich syntax as provided by the [ItemPredicateParser](https://blvckbytes.github.io/docs-item-predicate-parser), queries can be as simple or as detailed as you desire them to be; the days of having to flip through hundreds of unspecific results are finally over!
@@ -73,6 +79,8 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.feature.filter`: Use the filtering feature
 - `quickshopsearch.feature.teleport`: Teleport to shops within the same world
 - `quickshopsearch.feature.teleport.other-world`: Teleport to shops within another world
+- `quickshopsearch.feature.interact`: Remotely interact with shops within the same world
+- `quickshopsearch.feature.interact.other-world`: Remotely interact with shops within another world
 
 ## Performance Concerns
 
