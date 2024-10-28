@@ -75,6 +75,7 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.command.qssl`: Invoke the language command
 - `quickshopsearch.command.qssrl`: Invoke the reload command
 - `quickshopsearch.empty-predicate`: Query all shops without a predicate
+- `quickshopsearch.other-world`: Whether to display shops which are not in the same world as the player
 - `quickshopsearch.feature.sort`: Use the sorting feature
 - `quickshopsearch.feature.filter`: Use the filtering feature
 - `quickshopsearch.feature.teleport`: Teleport to shops within the same world

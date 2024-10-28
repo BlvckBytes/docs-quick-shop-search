@@ -5,3 +5,91 @@ sidebar_position: 3
 # Configuration
 
 The configuration and all of its translation-inputs can be found in the folder called `QuickShopSearch/config`; see the [ConfigMapper's Documentation](https://blvckbytes.github.io/docs-config-mapper) for more detail.
+
+## Distance-Based Fees
+
+:::note
+This feature has not yet been implemented in any official release and the following documentation merely represents a design-reference for the time being.
+:::
+
+All configuration-options regarding distance-based fees can be found under the root-level key called `fees`; to enable or disable this feature in its entirety, toggle `enabled` to `true` or `false`.
+
+![fees enabled](/img/configuration_fees_enabled.png)
+
+### Per World Distance-Ranges
+
+To allow for high flexibility fee configuration, distance-ranges are scoped per world-name; there are two keys, namely `default`, which is used as a fallback for all worlds which are not explicitly specified, and `worlds`, which maps world-names to distance-ranges.
+
+![fees enabled](/img/configuration_fees_per_world.png)
+
+### Distance-Range Entry
+
+Keys within a distance-ranges section (under `default` or world-name) are always integers greater than zero, ordered in an ascending manner, strictly incrementing. If the first key is `10` and the second `20`, that implies the first range being `[0;10]` and the second range being `[11;20]`, as the start of the very first range is always zero, and the start of any follow-up ranges are the end of their predecessors, plus one. Let's see an example.
+
+![fees enabled](/img/configuration_fees_intervals.png)
+
+### Permission-Names
+
+Within ranges, namely under the integer distance key, fees are scoped per permission-name, just like they are with worlds, to enable you to have varying fees for different users and or groups. Again, the `default` key acts as a fallback for when the user does not satisfy any permission-name, while names can be explicitly stated in the `names`-section. The layout of resulting permissions is as follows: `quickshopsearch.fees.distance-range.<name>`; the same name may be used across multiple worlds.
+
+![fees enabled](/img/configuration_fees_per_permission_name.png)
+
+### Fee Percentages, Priority and Hiding
+
+Within permission-names, or within the `default` fallback, fee-percentages may be specified for buying (`buy`) and selling (`sell`) as a floating-point value in the range `[0;1]`. These names represent underlying permissions, which the player may or may not have, from which directly follows that a player could have access to multiple fee-percentages simultaneously, most likely due to the standard concept of group permission inheritance; while you could (and may should) block distance-range permissions from trickling down, an optional value called `priority` has been introduced: the highest priority to which the player has access to will be chosen, whenever multiple candidates exist.
+
+The `priority` has to be a strictly positive integer. There is no need to ever specify a priority on the `default`-fallback, as it will never conflict with named ranges. Beware! If no priority has been specified, the first match (from top to bottom) will be selected - this is clearly defined and expected behavior.
+
+![fees enabled](/img/configuration_fees_percentages_and_priority.png)
+
+In the example above, if a player only has permission to `nameA`, it will be chosen; the same holds true for only having access to `nameB`; for both `nameA` and `nameB`, `nameB` will be chosen, in contrast to the case of `nameA` winning out if there were no priority-values, simply due to it being defined first.
+
+In order to hide shops falling into a certain range of distances, within a certain world, within a certain named permission (or default), simply set `hidden` to `true`; these shops will not be rendered in the shop-browser.
+
+![fees enabled](/img/configuration_fees_hidden.png)
+
+### Full Example
+
+Below you can find a textual full use example, with explanatory comments, containing all possible keys and cases.
+
+```yaml
+fees:
+  # Enable distance-based fees
+  enabled: true
+  distanceRanges:
+    # Fallback for when no world-name matches on 'worlds'
+    default:
+      10: # Distance in [0;10]
+        # Fallback for when the player has no access to any named range
+        default:
+          buy: 0
+          sell: 0
+        # Named ranges, each corresponding to a separate permission
+        names:
+          # quickshopsearch.fees.distance-range.nameA
+          nameA:
+            priority: 1
+            buy: 0
+            sell: 0
+          # quickshopsearch.fees.distance-range.nameB
+          nameB:
+            # If access to both nameA and nameB, nameB will win
+            priority: 2
+            buy: 0
+            sell: 0
+          # quickshopsearch.fees.distance-range.nameC
+      20: # Distance in [11;20]
+        default:
+          # Hide all shops with a distance greater than 20 for players
+          # who do not have access to any named ranges
+          hidden: true
+        # Structure equivalent to 10
+    # Distance-ranges per world-name (ignores casing)
+    worlds:
+      # World named 'skyblock'
+      skyblock:
+        # Structure equivalent to distanceRanges.default
+      # World named 'oneblock'
+      oneblock:
+        # Structure equivalent to distanceRanges.default
+```
