@@ -82,6 +82,8 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.feature.teleport.other-world`: Teleport to shops within another world
 - `quickshopsearch.feature.interact`: Remotely interact with shops within the same world
 - `quickshopsearch.feature.interact.other-world`: Remotely interact with shops within another world
+- `quickshopsearch.access-list.<suffix>`: Control access-lists by permission, see [Access-Lists](./configuration.md#access-lists)
+- `quickshopsearch.bypass-access-lists`: Bypass all access-lists, see [Access-Lists](./configuration.md#access-lists)
 
 ## Performance Concerns
 
