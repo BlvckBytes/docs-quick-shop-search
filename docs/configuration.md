@@ -6,6 +6,46 @@ sidebar_position: 3
 
 The configuration and all of its translation-inputs can be found in the folder called `QuickShopSearch/config`; see the [ConfigMapper's Documentation](https://blvckbytes.github.io/docs-config-mapper) for more detail.
 
+## Access-Lists
+
+In order to control which shops may be accessed by users, access-lists have been introduced; they are located under the key `"shopAccessLists"` in the configuration-file.
+
+Since different players may have access to a different set of shops, these lists are scoped by permission-suffixes in the form of `quickshopsearch.access-list.<suffix>`, with `<suffix>` being the key under which an access-list registers in the config, under the key `permissions`, right next to `default`; they are checked in the same order as specified, and the first matching permission-node will be taken as an input when filtering results for any given player.
+
+:::tip
+Beware of permission-inheritance with groups; either specify access-lists in reverse order of group-inheritance, or block access-list permissions from trickling down, as to avoid undesired behavior.
+:::
+
+If a player does not satisfy any of the permission-checks, the `default`-section will be employed. In the case that you do not want to differentiate by permissions, simply only specify a default. Access-lists can be bypassed altogether by the permission `quickshopsearch.bypass-access-lists`.
+
+The list `types` represents a list of item-types, as defined in [XMaterial](https://github.com/CryptoMorin/XSeries/blob/master/src/main/java/com/cryptomorin/xseries/XMaterial.java), as to support a broader range of versions. The flag `isAllowTypes` represents the access-mode, with `true` signalling that only the specified types are allowed, but none other than these, and with `false` meaning that only the specified types are disallowed, and all but these are allowed.
+
+```yaml
+shopAccessLists:
+  # Used when no permission-suffix matched on the player
+  default:
+    # Allow only the following
+    isAllowTypes: true
+    types:
+      - DIAMOND_PICKAXE
+      - IRON_SWORD
+  permissions:
+    # quickshopsearch.access-list.suffix-a
+    suffix-a:
+      # Disallow only the following
+      isAllowTypes: false
+      types:
+        - GOLDEN_PICKAXE
+        - WOODEN_SWORD
+    # quickshopsearch.access-list.suffix-b
+    suffix-b:
+      # Disallow only the following
+      isAllowTypes: false
+      types:
+        - WOODEN_PICKAXE
+        - GOLDEN_SWORD
+```
+
 ## Distance-Based Fees
 
 :::note
