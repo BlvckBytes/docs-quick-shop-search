@@ -63,6 +63,12 @@ Usage: `/qssl <language> <predicate>`
 
 To query all globally existing shops using any of the languages supported by the predicate-parser, use `/quickshopsearchlanguage` or its alias `/qssl`, followed up by the language, followed up by a predicate.
 
+### Advertise Command
+
+Usage: `/qs advertise`
+
+Toggles the is-advertising state of the shop currently looked at, indicating whether it'll show up on the shop-browser. By default, no shop is advertising, as it's an opt-in choice. These states are simply stored on the shop-sign's [PersistentDataContainer](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/persistence/PersistentDataContainer.html) as a single byte, being either `0` or `1`. There exists a bypass-permission for admins, so they can still view all globally existing shops - see the permissions-section of this page.
+
 ### Reload Configuration
 
 Usage: `/qssrl`
@@ -84,6 +90,9 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.feature.interact.other-world`: Remotely interact with shops within another world
 - `quickshopsearch.access-list.<suffix>`: Control access-lists by permission, see [Access-Lists](./configuration.md#access-lists)
 - `quickshopsearch.bypass-access-lists`: Bypass all access-lists, see [Access-Lists](./configuration.md#access-lists)
+- `quickshopsearch.command.advertise`: Invoke the toggle-advertise sub-command of quickshop.
+- `quickshopsearch.command.advertise.owner-bypass`: Invoke the toggle-advertise command for shops you're not the owner of.
+- `quickshopsearch.bypass-non-advertise`: View all shops, no matter whether they're advertising.
 
 ## Performance Concerns
 
