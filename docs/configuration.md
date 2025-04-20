@@ -11,13 +11,34 @@ The configuration and all of its translation-inputs can be found in the folder c
 To avoid users spamming teleportation, or in some cases, restricting the convenience of travelling back-and-forth as to carry huge amounts, cooldowns have been introduced. They differentiate between "same shop" and "any shop", where any applies to all teleportations, and "same" applies to shops which have been teleported to already, as it may be required to set another duration regarding travelling back to a recent shop, in contrast to visiting a new place. On top of this, the second differentiation lies in whether the shop is within the player's current-, or a foreign, other world; thus, four potential cooldowns arise. If you do not need some (or all, for that matter) of them, simply set them to a value of zero.
 
 ```yml
+# Specify the cooldown-duration in seconds
 cooldowns:
-  # Specify the cooldown-duration in seconds
   teleportToShop:
-    sameShop: 30
-    anyShop: 20
-    otherWorldSameShop: 60
-    otherWorldAnyShop: 40
+    default:
+      sameShop: 30
+      anyShop: 20
+      otherWorldSameShop: 60
+      otherWorldAnyShop: 40
+```
+
+If you desire to alter the cooldown of players on a permission-basis (e.g. ranks), use the group-section, which is processed top-down when trying to resolve applicable time-values for any given user.
+
+```yml
+# Specify the cooldown-duration in seconds
+cooldowns:
+  teleportToShop:
+    default:
+      sameShop: 30
+      anyShop: 20
+      otherWorldSameShop: 60
+      otherWorldAnyShop: 40
+    groups:
+      # Hand out quickshopsearch.teleport-cooldown.test to permit these values
+      test:
+        sameShop: 10
+        anyShop: 5
+        otherWorldSameShop: 15
+        otherWorldAnyShop: 10
 ```
 
 ## Access-Lists
