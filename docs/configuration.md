@@ -6,6 +6,20 @@ sidebar_position: 3
 
 The configuration and all of its translation-inputs can be found in the folder called `QuickShopSearch/config`; see the [ConfigMapper's Documentation](https://blvckbytes.github.io/docs-config-mapper) for more detail.
 
+## Teleport-Cooldowns
+
+To avoid users spamming teleportation, or in some cases, restricting the convenience of travelling back-and-forth as to carry huge amounts, cooldowns have been introduced. They differentiate between "same shop" and "any shop", where any applies to all teleportations, and "same" applies to shops which have been teleported to already, as it may be required to set another duration regarding travelling back to a recent shop, in contrast to visiting a new place. On top of this, the second differentiation lies in whether the shop is within the player's current-, or a foreign, other world; thus, four potential cooldowns arise. If you do not need some (or all, for that matter) of them, simply set them to a value of zero.
+
+```yml
+cooldowns:
+  # Specify the cooldown-duration in seconds
+  teleportToShop:
+    sameShop: 30
+    anyShop: 20
+    otherWorldSameShop: 60
+    otherWorldAnyShop: 40
+```
+
 ## Access-Lists
 
 In order to control which shops may be accessed by users, access-lists have been introduced; they are located under the key `"shopAccessLists"` in the configuration-file.

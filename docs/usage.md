@@ -85,7 +85,11 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.feature.sort`: Use the sorting feature
 - `quickshopsearch.feature.filter`: Use the filtering feature
 - `quickshopsearch.feature.teleport`: Teleport to shops within the same world
+- `quickshopsearch.feature.teleport.bypass-cooldown.same-shop`: Bypass the teleport cooldown for the same shop within the player's world
+- `quickshopsearch.feature.teleport.bypass-cooldown.any-shop`: Bypass the teleport cooldown for any shop within the player's world
 - `quickshopsearch.feature.teleport.other-world`: Teleport to shops within another world
+- `quickshopsearch.feature.teleport.other-world.bypass-cooldown.same-shop`: Bypass the teleport cooldown for the same shop within a foreign world
+- `quickshopsearch.feature.teleport.other-world.bypass-cooldown.any-shop`: Bypass the teleport cooldown for any shop within a foreign world
 - `quickshopsearch.feature.interact`: Remotely interact with shops within the same world
 - `quickshopsearch.feature.interact.other-world`: Remotely interact with shops within another world
 - `quickshopsearch.access-list.<suffix>`: Control access-lists by permission, see [Access-Lists](./configuration.md#access-lists)
