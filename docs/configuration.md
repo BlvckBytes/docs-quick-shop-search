@@ -69,6 +69,7 @@ slowTeleport:
   # How to act when the player's considered being in combat, as dictated by the cool-off duration above
   whenInCombat:
     # Countdown duration
+    # Set to zero as to disable this part of the feature; also works for `whenNotInCombat`
     durationSeconds: 5
     # Notification properties used when there's a null-value set to a seconds-value in `notificationAtSeconds` down below
     # This way, common messages and sounds can be lifted out, saving on needless repitition
