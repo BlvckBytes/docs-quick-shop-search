@@ -97,6 +97,7 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.command.advertise`: Invoke the toggle-advertise sub-command of quickshop.
 - `quickshopsearch.command.advertise.owner-bypass`: Invoke the toggle-advertise command for shops you're not the owner of.
 - `quickshopsearch.bypass-non-advertise`: View all shops, no matter whether they're advertising.
+- `quickshopsearch.bypass-slow-teleport`: Bypass having to wait for the teleportation-countdown
 
 ## Performance Concerns
 

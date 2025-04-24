@@ -6,6 +6,14 @@ sidebar_position: 3
 
 The configuration and all of its translation-inputs can be found in the folder called `QuickShopSearch/config`; see the [ConfigMapper's Documentation](https://blvckbytes.github.io/docs-config-mapper) for more detail.
 
+:::note
+There are quite a few lines in my configuration-files, as I value flexibility; many usually represent preprocessor-directives as to substitute in language file keys. If you're in search of specific settings, feel free to look them up via your editor's search-feature and simply skip over what you do not need.
+:::
+
+:::tip
+If you try to delete a key and it is automatically extended back into the config-file by the plugin, try commenting it out instead; the software then should detect your intent and refrain from updating the corresponding property again.
+:::
+
 ## Teleport-Cooldowns
 
 To avoid users spamming teleportation, or in some cases, restricting the convenience of travelling back-and-forth as to carry huge amounts, cooldowns have been introduced. They differentiate between "same shop" and "any shop", where any applies to all teleportations, and "same" applies to shops which have been teleported to already, as it may be required to set another duration regarding travelling back to a recent shop, in contrast to visiting a new place. On top of this, the second differentiation lies in whether the shop is within the player's current-, or a foreign, other world; thus, four potential cooldowns arise. If you do not need some (or all, for that matter) of them, simply set them to a value of zero.
@@ -39,6 +47,59 @@ cooldowns:
         anyShop: 5
         otherWorldSameShop: 15
         otherWorldAnyShop: 10
+```
+
+## Slow-Teleport
+
+Especially on servers which rely on combat as being part of their concept, instantaneous teleportation without any additional checks may be a dealbreaker; for this exact reason, slow teleportation - meaning only moving the player after a countdown elapsed successfully - has been introduced.
+
+The corresponding section offers quite a lot of flexibility, enabling the user to configure various durations, messages, sounds, and also to differentiate between slowly teleporting in normal- vs. in combat-situations; if you do not seek to differentiate, simply configure the two options identically.
+
+The defaults have been kept rather sensible and should not require much work in most real-world scenarios. Also notice the corresponding bypass-permission as listed on the main page of this documentation.
+
+```yml
+# Countdowns before teleporting
+slowTeleport:
+  # Cancel the countdown if damaged by another player - no  matter if directly or via a projectile
+  cancelIfDamagedByPlayer: true
+  # Cancel the countdown if the player experiences damage by non-player sources, like cacti, drowning, fire, etc.
+  cancelIfDamagedByNonPlayer: false
+  # Duration in seconds for the player to be marked as "in combat" since they've last been damaged by somebody else
+  combatLogCoolOffDurationSeconds: 10
+  # How to act when the player's considered being in combat, as dictated by the cool-off duration above
+  whenInCombat:
+    # Countdown duration
+    durationSeconds: 5
+    # Notification properties used when there's a null-value set to a seconds-value in `notificationAtSeconds` down below
+    # This way, common messages and sounds can be lifted out, saving on needless repitition
+    fallbackNotification:
+      # One of https://github.com/CryptoMorin/XSeries/blob/master/core/src/main/java/com/cryptomorin/xseries/XSound.java
+      sound: 'BLOCK_NOTE_BLOCK_PLING'
+      # - remaining_seconds: Integer
+      messages:
+        messageTitle: '...'
+        messageSubTitle: '...'
+        # Leave messages as null-values for them to be disabled
+        messageActionBar: null
+        messageChat: null
+    # At which points in time to notify the player?
+    notificationAtSeconds:
+      # Set to null in order to use the `fallbackNotification`
+      5: null
+      4: null
+      3: null
+      2: null
+      1: null
+      # Exception from the fallback - differing sound and a chat-message instead of a title
+      0:
+        sound: 'BLOCK_NOTE_BLOCK_PLING'
+        # Make the last pling be of higher pitch and loudness
+        soundVolume: 1.1
+        soundPitch: 1.2
+        messages:
+          messageChat: '...'
+  # Completely analogous to the `whenInCombat`-section; can be copied down 1:1
+  whenNotInCombat:
 ```
 
 ## Access-Lists
