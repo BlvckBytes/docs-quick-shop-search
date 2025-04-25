@@ -103,6 +103,17 @@ slowTeleport:
   whenNotInCombat:
 ```
 
+## PlayerWarps Integration
+
+As requested, instead of being teleported to the selected shop, one can now also be teleported to the nearest player-warp, as defined by the `com.olziedev`'s `PlayerWarps` plugin; to do so, simply hand out the corresponding permission, as can be viewed on the main page of this site.
+
+Once enabled by permission, the system checks neighboring chunks within the configured range of blocks for player-warps and chooses the one with least distance.
+
+```yml
+ playerWarpsIntegration:
+   nearestWarpBlockRadius: 15
+```
+
 ## Access-Lists
 
 In order to control which shops may be accessed by users, access-lists have been introduced; they are located under the key `"shopAccessLists"` in the configuration-file.
