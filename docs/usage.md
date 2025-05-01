@@ -35,9 +35,16 @@ Filter results based on your exact requirements: criteria combines conditionally
 
 ![display filtering](/img/display_filtering.gif)
 
+### Search-Flags
+
+Search-flags represent additional criteria to be met by the browser's entries, allowing to specify properties like the shop-owner, the radius (relative to the command-executor), and much more; use dash-notation, which supports auto-completion - just remember to insert them **prior** to the actual item-predicate, as to avoid ambiguity.
+
+![search flags 1](/img/display_search-flags_1.png)
+![search flags 2](/img/display_search-flags_2.png)
+
 ### Remote Interaction
 
-Interact with shops from any arbitrary distance, be it within the same world, or even across worlds! The requests to sell and buy items will be relayed to the shop and handled natively, thereby ensuring proper transactional consistency.
+Interact with shops from any arbitrary distance, be it within the same world, or even across worlds! The requests to sell and buy items will be relayed to the shop and handled natively, thereby ensuring proper transactional consistency. On top of said convenience, the user now also receives proper information about the limiting-factor of the maximum number of units to be bought/sold - no more guesswork!
 
 ![display remote interact](/img/display_remote_interact.gif)
 
@@ -53,13 +60,13 @@ Please familiarize yourself with the syntax of predicates over at the [Parser's 
 
 ### Main Language
 
-Usage: `/qss <predicate>`
+Usage: `/qss [search-flags] <predicate>`
 
 To query all globally existing shops using the configured main language, and thereby without having to specify an additional, use `/quickshopsearch` or its alias `/qss`, followed up by an optional predicate.
 
 ### Custom Language
 
-Usage: `/qssl <language> <predicate>`
+Usage: `/qssl <language> [search-flags] <predicate>`
 
 To query all globally existing shops using any of the languages supported by the predicate-parser, use `/quickshopsearchlanguage` or its alias `/qssl`, followed up by the language, followed up by a predicate.
 
@@ -92,6 +99,11 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.feature.teleport.other-world.bypass-cooldown.any-shop`: Bypass the teleport cooldown for any shop within a foreign world
 - `quickshopsearch.feature.interact`: Remotely interact with shops within the same world
 - `quickshopsearch.feature.interact.other-world`: Remotely interact with shops within another world
+- `quickshopsearch.feature.search-flag.owner`: Use the shop-owner search-flag
+- `quickshopsearch.feature.search-flag.radius`: Use the radius distance search-flag
+- `quickshopsearch.feature.search-flag.price`: Use the shop-price search-flag
+- `quickshopsearch.feature.search-flag.min-price`: Use the shop-min-price search-flag
+- `quickshopsearch.feature.search-flag.max-price`: Use the shop-max-price search-flag
 - `quickshopsearch.access-list.<suffix>`: Control access-lists by permission, see [Access-Lists](./configuration.md#access-lists)
 - `quickshopsearch.bypass-access-lists`: Bypass all access-lists, see [Access-Lists](./configuration.md#access-lists)
 - `quickshopsearch.command.advertise`: Invoke the toggle-advertise sub-command of quickshop.
