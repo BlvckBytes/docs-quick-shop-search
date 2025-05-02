@@ -48,6 +48,13 @@ Interact with shops from any arbitrary distance, be it within the same world, or
 
 ![display remote interact](/img/display_remote_interact.gif)
 
+#### Distance-Fees
+
+When interacting with shops remotely, fees based on distance may be configured; see the [Distance-Based Fees](./configuration.md#distance-based-fees) documentation. Said fees are also taken into account when calculating maximum units and are withdrawn before initiating a remote shop-interaction; if the interaction fails or stalls, the fees are refunded after the configured timeout period; if the fees could not be withdrawn in the first place, the remote interaction is cancelled immediately. Fees may be relative (percentage) and/or absolute (fixed value) - they are customizable by distance-range, world and permission.
+
+![distance fee 1](/img/distance_fee_1.png)
+![distance fee 2](/img/distance_fee_2.png)
+
 ### Powerful Predicates
 
 Thanks to the feature-rich syntax as provided by the [ItemPredicateParser](https://blvckbytes.github.io/docs-item-predicate-parser), queries can be as simple or as detailed as you desire them to be; the days of having to flip through hundreds of unspecific results are finally over!
@@ -112,6 +119,9 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.bypass-slow-teleport`: Bypass having to wait for the teleportation-countdown
 - `quickshopsearch.feature.teleport.closest-player-warp`: Be teleported to the closest player-warp instead, if it exists
 - `quickshopsearch.feature.teleport.closest-player-warp.ban-bypass`: Bypass player-warp bans when teleporting
+- `quickshopsearch.feature.fees.bypass`: Bypass fees for shops within the same world
+- `quickshopsearch.feature.fees.bypass.other-world`: Bypass fees for shops within another world
+- `quickshopsearch.feature.fees.permission-name.<name>`: Access permission-guarded fees with a name of `<name>`
 
 ## Performance Concerns
 
