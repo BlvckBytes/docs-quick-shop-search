@@ -107,13 +107,31 @@ slowTeleport:
 
 ## PlayerWarps Integration
 
-As requested, instead of being teleported to the selected shop, one can now also be teleported to the nearest player-warp, as defined by the `com.olziedev`'s `PlayerWarps` plugin; to do so, simply hand out the corresponding permission, as can be viewed on the main page of this site.
-
-Once enabled by permission, the system checks neighboring chunks within the configured range of blocks for player-warps and chooses the one with least distance.
+As requested, instead of being teleported to the selected shop, one can now also be teleported to the nearest player-warp, as defined by the `com.olziedev`'s `PlayerWarps` plugin or `dev.revivalo`'s free alternative. The system checks neighboring chunks within the configured range of blocks for player-warps and chooses the one with least distance.
 
 ```yml
- playerWarpsIntegration:
-   nearestWarpBlockRadius: 15
+playerWarpsIntegration:
+  enabled: true
+  nearestWarpBlockRadius: 15
+  # Whether to display the lore-line regarding the nearest player-warp on
+  # the representative icon in the browser
+  displayNearestInIcon: false
+  # Only used if there exist no update notifiers within the warps-plugin at hand
+  # Set to a negative number as to disable updating altogether
+  updatePeriodSeconds: 30
+```
+
+## Essentials Warps Integration
+
+The functionality of this integration is analogous to that of player-warps.
+
+```yml
+essentialsWarpsIntegration:
+  enabled: true
+  nearestWarpBlockRadius: 15
+  # Whether to display the lore-line regarding the nearest player-warp on
+  # the representative icon in the browser
+  displayNearestInIcon: false
 ```
 
 ## Access-Lists

@@ -61,6 +61,20 @@ Thanks to the feature-rich syntax as provided by the [ItemPredicateParser](https
 
 ![display filtering](/img/command_predicate.gif)
 
+### Slow Teleport
+
+When teleporting to a shop, there are many options to constrain this feature, like [Slow Teleport](./configuration.md#slow-teleport) and [Teleport Cooldowns](./configuration.md#teleport-cooldowns), where the former takes factors like the player's movement as well as combat into account, while the latter ensures a prevention of spam as well as to avoid misusing shops to set homes for rapid travel.
+
+![slow teleport](/img/slow_teleport.gif)
+
+### Teleport Destinations
+
+Since shops always can be corresponded with the physical location of their container, this destination makes for the default when teleporting to a shop; if configured, various auxiliary points like the closest player-warp may also be offered to teleport to; I'm planning on adding as many such secondary-location-providers as the community would like to have! :)
+
+In order to display them in a detailled manner and offering the user as much freedom of choice as possible, they're displayed in a separate display, which only opens if there are more than one (the shop itself) choices available.
+
+![teleport display](/img/teleport_display.gif)
+
 ## Commands
 
 Please familiarize yourself with the syntax of predicates over at the [Parser's Documentation](https://blvckbytes.github.io/docs-item-predicate-parser). Results are, if any, offered within a paginated display.
@@ -117,8 +131,7 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.command.advertise.owner-bypass`: Invoke the toggle-advertise command for shops you're not the owner of.
 - `quickshopsearch.bypass-non-advertise`: View all shops, no matter whether they're advertising.
 - `quickshopsearch.bypass-slow-teleport`: Bypass having to wait for the teleportation-countdown
-- `quickshopsearch.feature.teleport.closest-player-warp`: Be teleported to the closest player-warp instead, if it exists
-- `quickshopsearch.feature.teleport.closest-player-warp.ban-bypass`: Bypass player-warp bans when teleporting
+- `quickshopsearch.feature.teleport.nearest-player-warp.ban-bypass`: Bypass player-warp bans when teleporting
 - `quickshopsearch.feature.fees.bypass`: Bypass fees for shops within the same world
 - `quickshopsearch.feature.fees.bypass.other-world`: Bypass fees for shops within another world
 - `quickshopsearch.feature.fees.permission-name.<name>`: Access permission-guarded fees with a name of `<name>`
