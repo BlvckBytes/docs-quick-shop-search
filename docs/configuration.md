@@ -153,6 +153,16 @@ worldGuardIntegration:
   ignoredIds: ["my-region-1", "my-region-2"]
   # Regions with these priority-numbers will be skipped over
   ignoredPriorities: [1, 5]
+  # Region-names that shops are allowed to be advertised in
+  # Keep empty as to apply no such constraints
+  advertiseIdsAllowList: []
+  # If a shop's created within an allowed region, should it be advertised automatically?
+  # This does not take effect if a state has already been chosen manually already,
+  # as to not overrule the player's decision of opting out.
+  autoAdvertiseIfInAllowList: false
+  # If a shop's loaded that's not within an allowed region, should it's
+  # advertise-status be disabled automatically?
+  disableAdvertiseIfNotAllowed: false
 ```
 
 ## Access-Lists

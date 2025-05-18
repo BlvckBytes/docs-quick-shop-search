@@ -135,6 +135,8 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.feature.fees.bypass`: Bypass fees for shops within the same world
 - `quickshopsearch.feature.fees.bypass.other-world`: Bypass fees for shops within another world
 - `quickshopsearch.feature.fees.permission-name.<name>`: Access permission-guarded fees with a name of `<name>`
+- `quickshopsearch.command.advertise.allowlist-bypass`: Bypass the allow-list of regions when advertising owned shops
+- `quickshopsearch.command.advertise.allowlist-bypass.others`: Bypass the allow-list of regions when advertising foreign shops
 
 ## Performance Concerns
 
