@@ -119,6 +119,9 @@ playerWarpsIntegration:
   # Only used if there exist no update notifiers within the warps-plugin at hand
   # Set to a negative number as to disable updating altogether
   updatePeriodSeconds: 30
+  # Whether player-warps may only be corresponded if they're within the
+  # same region as the shop itself
+  withinSameRegion: false
 ```
 
 ## Essentials Warps Integration
@@ -132,6 +135,24 @@ essentialsWarpsIntegration:
   # Whether to display the lore-line regarding the nearest player-warp on
   # the representative icon in the browser
   displayNearestInIcon: false
+  # Whether essentials-warps may only be corresponded if they're within the
+  # same region as the shop itself
+  withinSameRegion: false
+```
+
+## WorldGuard Integration
+
+This integration allows the plugin to fetch the applicable regions of any given point within the world and thereby support further constraints and features.
+
+```yml
+worldGuardIntegration:
+  enabled: true
+  # Regions with these IDs will be skipped over
+  # Example: A big market-place region does not count for being in the same region, while
+  #          smaller individual shop-regions do; thus, add the former to the ignore-list
+  ignoredIds: ["my-region-1", "my-region-2"]
+  # Regions with these priority-numbers will be skipped over
+  ignoredPriorities: [1, 5]
 ```
 
 ## Access-Lists
