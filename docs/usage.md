@@ -71,7 +71,7 @@ When teleporting to a shop, there are many options to constrain this feature, li
 
 Since shops always can be corresponded with the physical location of their container, this destination makes for the default when teleporting to a shop; if configured, various auxiliary points like the closest player-warp may also be offered to teleport to; I'm planning on adding as many such secondary-location-providers as the community would like to have! :)
 
-In order to display them in a detailled manner and offering the user as much freedom of choice as possible, they're displayed in a separate display, which only opens if there are more than one (the shop itself) choices available.
+In order to display them in a detailled manner and offering the user as much freedom of choice as possible, they're displayed in a separate display, which only opens if there are more than one choices available.
 
 ![teleport display](/img/teleport_display.gif)
 
