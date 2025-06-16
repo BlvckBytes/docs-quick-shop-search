@@ -112,10 +112,12 @@ The configuration can be reloaded at any point in time, simply by running `/quic
 - `quickshopsearch.other-world`: Whether to display shops which are not in the same world as the player
 - `quickshopsearch.feature.sort`: Use the sorting feature
 - `quickshopsearch.feature.filter`: Use the filtering feature
-- `quickshopsearch.feature.teleport`: Teleport to shops within the same world
+- `quickshopsearch.feature.teleport.shop`: Teleport to the location of the shop
+- `quickshopsearch.feature.teleport.player-warp`: Teleport to the location of the nearest player-warp
+- `quickshopsearch.feature.teleport.essentials-warp`: Teleport to the location of the nearest essentials-warp
 - `quickshopsearch.feature.teleport.bypass-cooldown.same-shop`: Bypass the teleport cooldown for the same shop within the player's world
 - `quickshopsearch.feature.teleport.bypass-cooldown.any-shop`: Bypass the teleport cooldown for any shop within the player's world
-- `quickshopsearch.feature.teleport.other-world`: Teleport to shops within another world
+- `quickshopsearch.feature.teleport.other-world`: Teleport to locations within another world
 - `quickshopsearch.feature.teleport.other-world.bypass-cooldown.same-shop`: Bypass the teleport cooldown for the same shop within a foreign world
 - `quickshopsearch.feature.teleport.other-world.bypass-cooldown.any-shop`: Bypass the teleport cooldown for any shop within a foreign world
 - `quickshopsearch.feature.interact`: Remotely interact with shops within the same world
