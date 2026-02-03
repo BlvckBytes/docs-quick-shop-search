@@ -79,11 +79,11 @@ In order to display them in a detailled manner and offering the user as much fre
 
 Please familiarize yourself with the syntax of predicates over at the [Parser's Documentation](https://blvckbytes.github.io/docs-item-predicate-parser). Results are, if any, offered within a paginated display.
 
-### Main Language
+### Selected Language
 
 Usage: `/qss [search-flags] <predicate>`
 
-To query all globally existing shops using the configured main language, and thereby without having to specify an additional, use `/quickshopsearch` or its alias `/qss`, followed up by an optional predicate.
+To query all globally existing shops using the personal language currently selected via `/ipp Language <Language>`, use `/quickshopsearch` or its alias `/qss`, followed up by an optional predicate.
 
 ### Custom Language
 

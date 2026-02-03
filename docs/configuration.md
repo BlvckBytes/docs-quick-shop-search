@@ -6,11 +6,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Configuration
 
-The configuration and all of its translation-inputs can be found in the folder called `QuickShopSearch/config`; see the [ConfigMapper's Documentation](https://blvckbytes.github.io/docs-config-mapper) for more detail.
-
-:::note
-There are quite a few lines in my configuration-files, as I value flexibility; many usually represent preprocessor-directives as to substitute in language file keys. If you're in search of specific settings, feel free to look them up via your editor's search-feature and simply skip over what you do not need.
-:::
+The configuration employs my own language called [ComponentMarkup](https://blvckbytes.github.io/docs-component-markup/docs/intro). While most of the syntax should be rather human-readable and despite there being exact error-messages on malformed input, I am always here to help you customize your config - contact me at Discord via the handle `blvckbytes`.
 
 :::tip
 If you try to delete a key and it is automatically extended back into the config-file by the plugin, try commenting it out instead; the software then should detect your intent and refrain from updating the corresponding property again.
